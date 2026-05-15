@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { GlassCard } from "../ui/GlassCard";
 import { ChevronDown } from "lucide-react";
 
@@ -24,18 +25,47 @@ const faqs = [
   },
 ];
 
+function FAQVisualSVG() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-32 h-32 mx-auto mb-8 opacity-40" fill="none">
+      <circle cx="100" cy="100" r="70" stroke="url(#faqGrad)" strokeWidth="1" opacity="0.5">
+        <animate attributeName="r" values="70;75;70" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="100" y="115" textAnchor="middle" fill="url(#faqGrad)" fontSize="60" fontWeight="bold" opacity="0.6">?</text>
+      <circle cx="100" cy="100" r="50" stroke="#FFD700" strokeWidth="0.5" opacity="0.3" strokeDasharray="4 6">
+        <animateTransform attributeName="transform" type="rotate" values="0 100 100;360 100 100" dur="20s" repeatCount="indefinite"/>
+      </circle>
+      <defs>
+        <linearGradient id="faqGrad" x1="0" y1="0" x2="200" y2="200">
+          <stop stopColor="#FFD700"/>
+          <stop offset="1" stopColor="#00FFFF"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden z-10 max-w-4xl mx-auto">
+    <section ref={sectionRef} className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden z-10 max-w-4xl mx-auto">
+      <motion.div className="absolute top-[30%] right-[-20%] w-[400px] h-[400px] bg-[var(--color-neon-violet)] rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none" style={{ y: bgY }} />
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-12"
+        className="text-center mb-4"
       >
+        <FAQVisualSVG />
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
           Factual & <span className="text-gradient-gold">Frictionless</span>
         </h2>
@@ -44,7 +74,7 @@ export function FAQSection() {
         </p>
       </motion.div>
 
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-4 mt-8">
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
@@ -53,10 +83,10 @@ export function FAQSection() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
-            <GlassCard className="transition-all duration-300">
+            <GlassCard className="transition-all duration-300 hover:border-yellow-500/20">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left p-6 flex items-center justify-between focus:outline-none"
+                className="w-full text-left p-6 flex items-center justify-between focus:outline-none cursor-pointer"
               >
                 <span className="text-lg font-bold text-white pr-4">{faq.question}</span>
                 <motion.div

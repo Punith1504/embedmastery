@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pastel-peach: #FFDAB9;
-  --color-pastel-mint: #98FF98;
-  --color-pastel-lavender: #E6E6FA;
-  --color-pastel-sky: #87CEEB;
-  --color-pastel-pink: #FFB6C1;
-  --color-pastel-yellow: #FFFACD;
+  --color-space-900: #050510;
+  --color-space-800: #0B0B1A;
+  --color-space-700: #12122b;
+  --color-neon-gold: #FFD700;
+  --color-neon-cyan: #00FFFF;
+  --color-neon-violet: #8A2BE2;
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -15,8 +15,12 @@
 }
 
 :root {
-  --background: #f8f9fa; /* Off-white pastel background */
-  --foreground: #334155; /* Slate 700 for text readability */
+  --background: #050510;
+  --foreground: #ededed;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,35 +31,62 @@ body {
   min-height: 100vh;
 }
 
-/* Playful Pastel Liquid Glass Utilities */
+/* Liquid Glass Utilities */
 .glass-panel {
-  @apply bg-white/50 backdrop-blur-3xl border border-white/60 shadow-[0_8px_32px_0_rgba(100,100,111,0.1)];
+  @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(255,255,255,0.05)];
 }
 
 .glass-glow-edge {
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.8),
-              0 8px 32px 0 rgba(100, 100, 111, 0.1);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05),
+              0 8px 32px 0 rgba(255, 255, 255, 0.05);
 }
 
-.text-gradient-playful {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500;
+.text-gradient-gold {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-[#FFD700] to-yellow-600;
 }
 
-/* Floating Ambient Orbs (Soft Pastels) */
+/* 3D Card Flip Support */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Glowing Orbs Animation */
 @keyframes float1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(40px, -60px) scale(1.05); }
-  66% { transform: translate(-30px, 30px) scale(0.95); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 @keyframes float2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-40px, 40px) scale(1.05); }
-  66% { transform: translate(30px, -60px) scale(0.95); }
+  33% { transform: translate(-30px, 30px) scale(1.1); }
+  66% { transform: translate(20px, -50px) scale(0.9); }
 }
 
 .orb-1 {
-  animation: float1 18s ease-in-out infinite;
+  animation: float1 15s ease-in-out infinite;
 }
 .orb-2 {
-  animation: float2 22s ease-in-out infinite;
+  animation: float2 20s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.4);
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #fff;
 }

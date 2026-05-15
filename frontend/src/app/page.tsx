@@ -7,7 +7,7 @@ import { PricingSection } from "@/components/sections/PricingSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-slate-950 selection:bg-[var(--color-pastel-pink)] selection:text-slate-900 overflow-x-hidden text-slate-200">
+    <main className="flex min-h-screen flex-col bg-[var(--color-space-900)] selection:bg-[var(--color-neon-gold)] selection:text-[var(--color-space-900)] overflow-x-hidden">
       <HeroSection />
       <PainPointsSection />
       <ModulesSection />

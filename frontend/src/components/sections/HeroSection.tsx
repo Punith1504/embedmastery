@@ -1,29 +1,69 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { AntiGravityWrapper } from "../animations/AntiGravityWrapper";
 import { MagneticButton } from "../ui/MagneticButton";
 import { GlassCard } from "../ui/GlassCard";
 import { Timer, Users } from "lucide-react";
 
-export function HeroSection() {
+function HeroSVG() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 overflow-hidden">
-      {/* Background Glowing Orbs */}
+    <svg viewBox="0 0 400 400" className="absolute inset-0 w-full h-full pointer-events-none opacity-30" fill="none">
+      {/* Sacred geometry background */}
+      <circle cx="200" cy="200" r="150" stroke="url(#heroGrad)" strokeWidth="0.5" opacity="0.4">
+        <animate attributeName="r" values="150;160;150" dur="6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="200" cy="200" r="100" stroke="url(#heroGrad)" strokeWidth="0.8" opacity="0.3">
+        <animate attributeName="r" values="100;108;100" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <polygon points="200,80 280,260 120,260" stroke="#FFD700" strokeWidth="0.5" opacity="0.15">
+        <animateTransform attributeName="transform" type="rotate" values="0 200 200;360 200 200" dur="30s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="200,280 280,100 120,100" stroke="#00FFFF" strokeWidth="0.5" opacity="0.15">
+        <animateTransform attributeName="transform" type="rotate" values="360 200 200;0 200 200" dur="30s" repeatCount="indefinite"/>
+      </polygon>
+      <defs>
+        <linearGradient id="heroGrad" x1="0" y1="0" x2="400" y2="400">
+          <stop stopColor="#FFD700"/>
+          <stop offset="1" stopColor="#00FFFF"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+export function HeroSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const orbY1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const orbY2 = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  return (
+    <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 overflow-hidden">
+      {/* Parallax Background Glowing Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[20%] w-96 h-96 bg-[var(--color-neon-violet)] rounded-full mix-blend-screen filter blur-[100px] opacity-20 orb-1"></div>
-        <div className="absolute bottom-[20%] right-[20%] w-96 h-96 bg-[var(--color-neon-cyan)] rounded-full mix-blend-screen filter blur-[100px] opacity-20 orb-2"></div>
-        <div className="absolute top-[40%] left-[50%] w-80 h-80 bg-[var(--color-neon-gold)] rounded-full mix-blend-screen filter blur-[120px] opacity-10 orb-1" style={{ animationDelay: '2s' }}></div>
+        <motion.div style={{ y: orbY1 }} className="absolute top-[20%] left-[20%] w-96 h-96 bg-[var(--color-neon-violet)] rounded-full mix-blend-screen filter blur-[100px] opacity-20 orb-1"></motion.div>
+        <motion.div style={{ y: orbY2 }} className="absolute bottom-[20%] right-[20%] w-96 h-96 bg-[var(--color-neon-cyan)] rounded-full mix-blend-screen filter blur-[100px] opacity-20 orb-2"></motion.div>
+        <motion.div style={{ y: orbY1 }} className="absolute top-[40%] left-[50%] w-80 h-80 bg-[var(--color-neon-gold)] rounded-full mix-blend-screen filter blur-[120px] opacity-10 orb-1" ></motion.div>
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
+      <motion.div 
+        className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center"
+        style={{ y: contentY, opacity: contentOpacity }}
+      >
         
         {/* Urgency Badge */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8 flex items-center gap-4"
+          className="mb-8 flex items-center gap-4 flex-wrap justify-center"
         >
           <div className="glass-panel px-4 py-2 rounded-full flex items-center gap-2 text-sm text-red-300 border-red-500/30">
             <Timer className="w-4 h-4 animate-pulse" />
@@ -57,7 +97,7 @@ export function HeroSection() {
           Stop hoping. Start commanding. Learn the exact neuro-frequency formula to attract wealth, health, and profound peace on autopilot.
         </motion.p>
 
-        {/* Video Placeholder Card with Anti-Gravity */}
+        {/* Hero Image Card with Anti-Gravity + SVG overlay */}
         <div className="w-full max-w-4xl mb-12">
           <AntiGravityWrapper yOffset={10} duration={8}>
             <GlassCard className="aspect-video flex items-center justify-center p-2 relative overflow-hidden group">
@@ -67,6 +107,7 @@ export function HeroSection() {
                 className="w-full h-full object-cover rounded-xl opacity-90 transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-space-900)] to-transparent opacity-60"></div>
+              <HeroSVG />
               <div className="absolute w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20 group-hover:scale-110 transition-transform duration-500 cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.2)]">
                 <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
               </div>
@@ -98,7 +139,7 @@ export function HeroSection() {
           </MagneticButton>
         </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }
