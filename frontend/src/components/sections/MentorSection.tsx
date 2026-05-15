@@ -17,9 +17,12 @@ export function MentorSection() {
         {/* Isolated Mentor Image placeholder */}
         <AntiGravityWrapper yOffset={15} duration={7}>
           <div className="relative z-10 w-64 h-80 rounded-b-full bg-gradient-to-b from-white/10 to-transparent border-t border-x border-white/20 flex flex-col items-center justify-end overflow-hidden shadow-[0_0_50px_rgba(255,215,0,0.1)]">
-            <div className="w-full h-full flex items-end justify-center pb-4 text-white/50 text-sm">
-              [Mentor Image]
-            </div>
+            <img 
+              src="/mentor.png" 
+              alt="Mentor Gowrishankar" 
+              className="absolute inset-0 w-full h-full object-cover object-top opacity-90 mix-blend-screen mix-blend-lighten"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-space-900)] via-transparent to-transparent opacity-80"></div>
           </div>
         </AntiGravityWrapper>
 

@@ -51,12 +51,15 @@ export function HeroSection() {
         {/* Video Placeholder Card with Anti-Gravity */}
         <div className="w-full max-w-4xl mb-12">
           <AntiGravityWrapper yOffset={10} duration={8}>
-            <GlassCard className="aspect-video flex items-center justify-center p-2">
-              <div className="w-full h-full bg-black/40 rounded-xl border border-white/5 flex items-center justify-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-space-900)] to-transparent opacity-80"></div>
-                <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20 group-hover:scale-110 transition-transform duration-500 cursor-pointer">
-                  <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
-                </div>
+            <GlassCard className="aspect-video flex items-center justify-center p-2 relative overflow-hidden group">
+              <img 
+                src="/hero_art.png" 
+                alt="Manifestation Liquid Glass Art" 
+                className="w-full h-full object-cover rounded-xl opacity-90 transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-space-900)] to-transparent opacity-60"></div>
+              <div className="absolute w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20 group-hover:scale-110 transition-transform duration-500 cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
               </div>
             </GlassCard>
           </AntiGravityWrapper>
