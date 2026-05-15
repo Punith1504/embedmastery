@@ -7,23 +7,23 @@ import { AntiGravityWrapper } from "../animations/AntiGravityWrapper";
 const painPoints = [
   {
     id: 1,
-    problem: "Money Stuck",
-    description: "Working hard but financial growth is blocked?",
-    solution: "Wealth Frequency Attunement",
+    problem: "Income Plateau",
+    description: "Working harder but your bank balance stays exactly the same?",
+    solution: "Quantum Wealth Attunement",
     delay: 0,
   },
   {
     id: 2,
-    problem: "Career Blocked",
-    description: "Not getting the promotions or opportunities you deserve?",
-    solution: "Quantum Career Leap Technique",
+    problem: "Invisible Barriers",
+    description: "Constantly hitting a wall right before major breakthroughs?",
+    solution: "Subconscious Unblocking",
     delay: 0.2,
   },
   {
     id: 3,
-    problem: "Constant Stress",
-    description: "Mind always racing with anxiety about the future?",
-    solution: "Subconscious Mind Rewiring",
+    problem: "Chronic Burnout",
+    description: "Running on empty, trapped in survival mode anxiety?",
+    solution: "Alpha State Mastery",
     delay: 0.4,
   },
 ];
@@ -44,10 +44,10 @@ export function PainPointsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Is Your Life Stuck in a Loop?
+            Stuck in the Matrix?
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Break the cycle of struggle with our Scientific Manifestation Blueprint. Hover to reveal the paradigm shift.
+            Hover the cards to reveal the neurological paradigm shift.
           </p>
         </motion.div>
 

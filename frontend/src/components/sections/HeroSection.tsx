@@ -40,13 +40,22 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8"
+          className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6"
         >
-          <span className="block text-white mb-2">మీ Mind ని Reprogram చేసే</span>
-          <span className="block text-gradient-gold">
-            2-Day Scientific Manifestation Formula...
+          <span className="block text-white mb-2 leading-tight">Reprogram Your Reality</span>
+          <span className="block text-gradient-gold text-3xl md:text-5xl mt-4">
+            The 2-Day Scientific Manifestation Protocol
           </span>
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10"
+        >
+          Stop hoping. Start commanding. Learn the exact neuro-frequency formula to attract wealth, health, and profound peace on autopilot.
+        </motion.p>
 
         {/* Video Placeholder Card with Anti-Gravity */}
         <div className="w-full max-w-4xl mb-12">

@@ -6,23 +6,23 @@ import { GlassCard } from "../ui/GlassCard";
 const modules = [
   {
     day: "Day 1",
-    title: "The Science of Frequency",
-    description: "Understand how brainwaves and electromagnetic fields govern what you attract. Learn to tune into the 'Alpha State' on command.",
+    title: "The Frequency Blueprint",
+    description: "Tune into the 'Alpha State' on command. Discover how your brainwaves dictate what you attract.",
   },
   {
     day: "Day 1",
-    title: "Subconscious Unblocking",
-    description: "Identify and permanently delete deeply ingrained limiting beliefs about money, success, and relationships.",
+    title: "Subconscious Purge",
+    description: "Locate and permanently delete the deep neural blocks sabotaging your success.",
   },
   {
     day: "Day 2",
-    title: "Quantum Goal Setting",
-    description: "Stop wishing, start materializing. A scientific framework to plant your goals into the quantum field for rapid manifestation.",
+    title: "Quantum Goal Integration",
+    description: "Plant your desires directly into the quantum field for rapid, effortless materialization.",
   },
   {
     day: "Day 2",
-    title: "The 11-Minute Daily Ritual",
-    description: "A plug-and-play daily protocol combining breathwork, visualization, and frequency audio to lock in your new reality.",
+    title: "The 11-Minute Protocol",
+    description: "A daily scientific ritual. Combine breathwork and frequency audio to lock in your new reality.",
   },
 ];
 
@@ -42,10 +42,10 @@ export function ModulesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            What You Will Learn
+            Curriculum
           </h2>
           <p className="text-gray-400 text-lg">
-            A precise, scientific curriculum designed to reprogram your reality.
+            A precise neurological protocol to shift your paradigm.
           </p>
         </motion.div>
 

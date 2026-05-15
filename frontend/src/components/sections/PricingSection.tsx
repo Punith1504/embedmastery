@@ -22,10 +22,10 @@ export function PricingSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Transform Your Reality Today
+            Claim Your Reality
           </h2>
           <p className="text-gray-400 text-lg">
-            Join the 2-Day Masterclass and get exclusive bonuses worth <span className="text-gradient-gold font-bold">₹4,999</span> for FREE.
+            Unlock the Masterclass + <span className="text-gradient-gold font-bold">₹4,999 in Bonuses</span> for FREE today.
           </p>
         </motion.div>
 

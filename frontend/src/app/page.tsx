@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { PainPointsSection } from "@/components/sections/PainPointsSection";
 import { ModulesSection } from "@/components/sections/ModulesSection";
 import { MentorSection } from "@/components/sections/MentorSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <PainPointsSection />
       <ModulesSection />
       <MentorSection />
+      <FAQSection />
       <PricingSection />
     </main>
   );

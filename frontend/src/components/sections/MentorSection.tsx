@@ -61,16 +61,15 @@ export function MentorSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Meet Your Mentor, <br/>
-            <span className="text-gradient-gold">Gowrishankar</span>
+            Meet <span className="text-gradient-gold">Gowrishankar</span>
           </h2>
           
           <GlassCard className="p-8 mt-8 border-l-4 border-l-yellow-500 bg-white/5">
             <p className="text-gray-300 text-lg mb-4 leading-relaxed">
-              For over a decade, Gowrishankar has studied the intersection of quantum physics, ancient wisdom, and modern neuroscience. He has helped thousands reprogram their subconscious minds to attract wealth, health, and profound peace.
+              Master of Quantum Physics & Ancient Wisdom. For over a decade, Gowrishankar has helped thousands rewire their neural pathways to effortlessly attract wealth and health.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              This isn't about wishing on a star. It's about aligning your bio-frequency to match the reality you desire. Join him for two days, and learn the exact formula.
+              No wishful thinking. Just pure bio-frequency alignment. Join him to crack the exact scientific code.
             </p>
           </GlassCard>
         </motion.div>
